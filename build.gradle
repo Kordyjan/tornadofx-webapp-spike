@@ -22,5 +22,6 @@ allprojects {
 
     dependencies {
         compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+        compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.8.7"
     }
 }
