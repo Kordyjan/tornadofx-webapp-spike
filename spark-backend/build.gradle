@@ -2,8 +2,10 @@ version '0.1-SNAPSHOT'
 
 apply plugin: 'application'
 
-mainClassName = 'TestuKt'
+mainClassName = 'spike.spark.backend.ServerConfigKt'
 
 dependencies {
     compile project(':spikes-common')
+    compile "org.slf4j:slf4j-simple:1.7.25"
+    compile "com.sparkjava:spark-core:2.5.5"
 }
