@@ -86,3 +86,6 @@ gradle-app.setting
 .idea/modules.xml
 .idea/modules/
 **.iml
+**/runtime-data/images/*.png
+**/runtime-data/images/*.jpg
+**/runtime-data/data
