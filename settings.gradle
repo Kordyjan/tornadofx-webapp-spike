@@ -1,0 +1,2 @@
+rootProject.name = 'spikes'
+include 'spikes-common', 'spark-backend'

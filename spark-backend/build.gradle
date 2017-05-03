@@ -1,0 +1,9 @@
+version '0.1-SNAPSHOT'
+
+apply plugin: 'application'
+
+mainClassName = 'TestuKt'
+
+dependencies {
+    compile project(':spikes-common')
+}
