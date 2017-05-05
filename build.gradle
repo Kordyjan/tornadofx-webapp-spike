@@ -25,3 +25,7 @@ allprojects {
         compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.8.7"
     }
 }
+
+project(':spark-backend').afterEvaluate {
+    it.run.args projectDir.toPath().resolve('runtime-data/data.json').toString()
+}

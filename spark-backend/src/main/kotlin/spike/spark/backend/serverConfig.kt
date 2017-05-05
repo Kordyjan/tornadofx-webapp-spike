@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
         }
 
         get("/create") { _, _ ->
-            val dataBase = DataBase("data.json")
+            val dataBase = DataBase(args[0])
             dataBase.persons.insert(Person("Spock", 100))
             dataBase.persons.insert(Person("Szkocik", 200))
             dataBase.save()

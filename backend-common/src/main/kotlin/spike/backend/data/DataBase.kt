@@ -12,7 +12,7 @@ class DataBase private constructor(val persons: Table<Person>) {
 
     fun save() {
         thread {
-            file.createNewFile()
+            file.parentFile.mkdirs()
             file.writeText(this.toJson())
         }
     }
