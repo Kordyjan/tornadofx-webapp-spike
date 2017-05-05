@@ -26,6 +26,10 @@ allprojects {
     }
 }
 
+task clearState(type: Delete) {
+    delete = 'runtime-data'
+}
+
 project(':spark-backend').afterEvaluate {
     it.run.args projectDir.toPath().resolve('runtime-data/data.json').toString()
 }
