@@ -1,13 +1,14 @@
 package spike.backend.data
 
 import com.fasterxml.jackson.annotation.JsonIgnore
+import com.fasterxml.jackson.annotation.JsonProperty
 import spike.common.model.Person
 import spike.common.read
 import spike.common.toJson
 import java.io.File
 import kotlin.concurrent.thread
 
-class DataBase private constructor(val persons: Table<Person>) {
+class DataBase private constructor(@JsonProperty val persons: Table<Person> = Table()) {
     lateinit private var file: File
 
     fun save() {
@@ -21,11 +22,12 @@ class DataBase private constructor(val persons: Table<Person>) {
         operator fun invoke(path: String): DataBase {
             val file = File(path)
             val dataBase: DataBase? = try {
-                file.readText().takeUnless { it.isBlank() }?.read<DataBase>()
+                file.readText().read<DataBase>()
             } catch (e: Exception) {
+                e.printStackTrace()
                 null
             }
-            return (dataBase ?: DataBase(Table(mutableListOf()))).also { it.file = file }
+            return (dataBase ?: DataBase()).also { it.file = file }
         }
     }
 }

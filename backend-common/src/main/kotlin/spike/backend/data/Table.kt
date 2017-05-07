@@ -4,12 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
 @JsonIgnoreProperties("list")
-class Table<T>(internal val content: MutableList<Pair<T, Boolean>>) : DataAccess<T> {
+class Table<T>(@JsonProperty("content") internal val content: MutableList<Pair<T, Boolean>> = mutableListOf()) : DataAccess<T> {
 
     override val list: Map<Int, T>
         get() = content.withIndex().filter { it.value.second }.map { it.index to it.value.first }.toMap()
 
-    override fun get(id: Int): T? = content[id].takeIf { it.second }.let { it?.first }
+    override fun get(id: Int): T? = content[id].takeIf { it.second }?.first
 
     override fun update(id: Int, value: T) {
         if (content[id].second) {
