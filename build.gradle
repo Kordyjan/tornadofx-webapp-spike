@@ -26,10 +26,22 @@ allprojects {
     }
 }
 
+ext.port = '4567'
+
+subprojects {
+    ext.subProjectType = 'lib'
+    afterEvaluate {
+        if (it.subProjectType == 'back') {
+            it.apply plugin: 'application'
+            it.run.args parent.projectDir.toPath().resolve('runtime-data/data.json').toString(), port
+        } else if (it.subProjectType == 'front') {
+            it.apply plugin: 'application'
+            it.run.args 'localhost', port
+        }
+    }
+}
+
 task clearState(type: Delete) {
     delete = 'runtime-data'
 }
 
-project(':spark-backend').afterEvaluate {
-    it.run.args projectDir.toPath().resolve('runtime-data/data.json').toString()
-}

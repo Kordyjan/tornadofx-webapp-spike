@@ -1,8 +1,9 @@
 version '0.1-SNAPSHOT'
 
-apply plugin: 'application'
-
-mainClassName = 'spike.spark.backend.ServerConfigKt'
+ext.subProjectType = 'back'
+afterEvaluate {
+    mainClassName = 'spike.spark.backend.ServerConfigKt'
+}
 
 dependencies {
     compile project(':spikes-common')

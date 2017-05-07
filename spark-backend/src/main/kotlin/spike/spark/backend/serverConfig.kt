@@ -11,6 +11,7 @@ fun main(args: Array<String>) {
     val dataBase = DataBase(args[0])
 
     staticFiles.location("/images")
+    port(args[1].toInt())
 
     path("/api") {
         before("/*") { req, _ ->
