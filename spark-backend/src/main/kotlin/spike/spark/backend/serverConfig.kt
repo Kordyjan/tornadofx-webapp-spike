@@ -3,6 +3,7 @@ package spike.spark.backend
 import org.slf4j.LoggerFactory
 import spark.Spark.*
 import spike.backend.data.DataBase
+import spike.common.model.Indexed
 import spike.common.model.Person
 import spike.common.toJson
 
@@ -19,7 +20,7 @@ fun main(args: Array<String>) {
         }
 
         get("/users") { _, _ ->
-            dataBase.persons.list.map { it.toPair() }.toJson()
+            dataBase.persons.list.map(::Indexed).toJson()
         }
 
         get("/create") { _, _ ->

@@ -1,6 +1,5 @@
 package spike.backend.data
 
-import com.fasterxml.jackson.annotation.JsonIgnore
 import com.fasterxml.jackson.annotation.JsonProperty
 import spike.common.model.Person
 import spike.common.read
