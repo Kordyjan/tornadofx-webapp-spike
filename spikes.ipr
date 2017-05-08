@@ -51,6 +51,8 @@
       <module filepath="$PROJECT_DIR$/spikes.iml" fileurl="file://$PROJECT_DIR$/spikes.iml"/>
       <module filepath="$PROJECT_DIR$/spark-backend/spark-backend.iml" fileurl="file://$PROJECT_DIR$/spark-backend/spark-backend.iml"/>
       <module filepath="$PROJECT_DIR$/spikes-common/spikes-common.iml" fileurl="file://$PROJECT_DIR$/spikes-common/spikes-common.iml"/>
+      <module filepath="$PROJECT_DIR$/backend-common/backend-common.iml" fileurl="file://$PROJECT_DIR$/backend-common/backend-common.iml"/>
+      <module filepath="$PROJECT_DIR$/tornado-frontend/tornado-frontend.iml" fileurl="file://$PROJECT_DIR$/tornado-frontend/tornado-frontend.iml"/>
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" assert-keyword="true" jdk-15="true" project-jdk-type="JavaSDK" assert-jdk-15="true" project-jdk-name="1.8">

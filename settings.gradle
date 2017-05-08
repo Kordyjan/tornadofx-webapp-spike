@@ -1,4 +1,3 @@
 rootProject.name = 'spikes'
-include 'spikes-common', 'spark-backend'
-include 'backend-common'
+include 'spikes-common', 'spark-backend', 'backend-common', 'tornado-frontend'
 

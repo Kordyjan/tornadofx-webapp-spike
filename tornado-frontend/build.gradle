@@ -1,0 +1,19 @@
+group 'pl.edu.agh.ozab'
+version '0.1-SNAPSHOT'
+
+subProjectType = 'front'
+
+dependencies {
+    compile project(':spikes-common')
+    compile 'io.reactivex:rxjavafx:2.0.2'
+    compile 'io.reactivex:rxkotlin:2.0.0-RC1'
+    compile 'no.tornado:tornadofx:1.7.0'
+    compile 'com.github.thomasnield:rxkotlinfx:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.2.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.2.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.2.0'
+}
+
+afterEvaluate {
+    mainClassName = 'spike.tornado.frontend.ClientApp'
+}

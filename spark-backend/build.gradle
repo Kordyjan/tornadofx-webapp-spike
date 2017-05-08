@@ -1,6 +1,6 @@
 version '0.1-SNAPSHOT'
 
-ext.subProjectType = 'back'
+subProjectType = 'back'
 afterEvaluate {
     mainClassName = 'spike.spark.backend.ServerConfigKt'
 }
