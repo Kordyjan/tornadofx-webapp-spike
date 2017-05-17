@@ -1,6 +1,5 @@
 package spike.tornado.frontend.rest
 
-import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.Single
 import retrofit2.http.Body

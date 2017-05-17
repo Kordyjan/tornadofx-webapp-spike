@@ -89,8 +89,13 @@ class UserView : View() {
                 }
                 button("add") {
                     actionEvents().switchMap { _ ->
-                        userApi.addUser(Person(nameField.text, moneyField.value.toLong())).toObservable()
-                    }.subscribe()
+                        userApi.addUser(Person(nameField.text, moneyField.value.toLong()))
+                                .toObservable()
+                    }.switchMap {
+                        userApi.getUsers()
+                    }.subscribe {
+                        list.items.setAll(it)
+                    }
                 }
             }
 
