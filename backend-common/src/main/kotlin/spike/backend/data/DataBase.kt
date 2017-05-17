@@ -23,7 +23,6 @@ class DataBase private constructor(@JsonProperty val persons: Table<Person> = Ta
             val dataBase: DataBase? = try {
                 file.readText().read<DataBase>()
             } catch (e: Exception) {
-                e.printStackTrace()
                 null
             }
             return (dataBase ?: DataBase()).also { it.file = file }

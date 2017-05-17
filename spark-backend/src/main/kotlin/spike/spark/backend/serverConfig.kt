@@ -26,6 +26,7 @@ fun main(args: Array<String>) {
         post("/users") { req, _ ->
             try {
                 dataBase.persons.insert(req.body().read())
+                dataBase.save()
             } catch (e: Exception) {
                 halt(400)
             }
