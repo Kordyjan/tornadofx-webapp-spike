@@ -1,4 +1,4 @@
-group 'pl.edu.agh.ozab'
+group 'com.github.kordyjan'
 version '0.1-SNAPSHOT'
 
 dependencies {
