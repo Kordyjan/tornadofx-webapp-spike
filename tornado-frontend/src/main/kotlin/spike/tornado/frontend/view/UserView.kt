@@ -1,13 +1,18 @@
 package spike.tornado.frontend.view
 
 import com.github.thomasnield.rxkotlinfx.actionEvents
+import javafx.beans.property.SimpleIntegerProperty
+import javafx.geometry.Orientation
 import javafx.scene.control.ListView
+import javafx.scene.control.Spinner
+import javafx.scene.control.TextField
 import javafx.scene.image.Image
 import javafx.scene.image.ImageView
 import javafx.scene.layout.HBox
 import javafx.scene.layout.Priority
 import spike.common.model.Indexed
 import spike.common.model.Person
+import spike.tornado.frontend.Styles.Companion.newUserForm
 import spike.tornado.frontend.Styles.Companion.toolbox
 import spike.tornado.frontend.Styles.Companion.userListEntry
 import spike.tornado.frontend.rest.RestController
@@ -56,6 +61,7 @@ class UserView : View() {
 
         bottom = hbox {
             addClass(toolbox)
+
             button(graphic = refreshGraphic) {
                 actionEvents().switchMap { _ ->
                     userApi.getUsers()
@@ -63,6 +69,31 @@ class UserView : View() {
                     list.items.setAll(it)
                 }
             }
+
+            separator(Orientation.VERTICAL)
+
+            hbox {
+                var nameField: TextField by singleAssign()
+                var moneyField: Spinner<Int> by singleAssign()
+
+                addClass(newUserForm)
+                form {
+                    fieldset("Add user") {
+                        field("Name") {
+                            nameField = textfield()
+                        }
+                        field("Money") {
+                            moneyField = spinner(0, 1000, 100, 10)
+                        }
+                    }
+                }
+                button("add") {
+                    actionEvents().switchMap { _ ->
+                        userApi.addUser(Person(nameField.text, moneyField.value.toLong())).toObservable()
+                    }.subscribe()
+                }
+            }
+
         }
     }
 }

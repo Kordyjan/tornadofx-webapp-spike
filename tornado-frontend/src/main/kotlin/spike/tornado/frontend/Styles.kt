@@ -9,6 +9,7 @@ class Styles : Stylesheet() {
     companion object {
         val toolbox by cssclass()
         val userListEntry by cssclass()
+        val newUserForm by cssclass()
         val debugBorder by cssclass()
     }
 
@@ -27,6 +28,10 @@ class Styles : Stylesheet() {
         debugBorder {
             borderColor += box(Color.RED)
             backgroundColor += Color.GREEN
+        }
+
+        newUserForm {
+            alignment = Pos.CENTER
         }
     }
 }
